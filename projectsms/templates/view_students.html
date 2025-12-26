@@ -12,20 +12,22 @@
     <h1>Students</h1>
     <p><a href="{% url 'add_student' %}">Add new student</a></p>
     <table class="students">
-    <tr><th>Roll</th><th>Name</th><th>Email</th><th>Age</th><th>Actions</th></tr>
+    <tr><th>Roll</th><th>Name</th><th>Email</th><th>Age</th><th>Course</th><th>Attendance</th><th>Actions</th></tr>
     {% for s in students %}
     <tr>
         <td>{{ s.roll_no }}</td>
         <td>{{ s.first_name }} {{ s.last_name }}</td>
         <td>{{ s.email }}</td>
         <td>{{ s.age }}</td>
+        <td>{% if s.selected_course %}{{ s.selected_course }}{% else %}-{% endif %}</td>
+        <td>{% if s.attendance is not None %}{{ s.attendance }}%{% else %}-{% endif %}</td>
         <td>
         <a href="/update_student/{{ s.pk }}/">Edit</a> |
         <a href="/delete_student/{{ s.pk }}/">Delete</a>
         </td>
     </tr>
     {% empty %}
-    <tr><td colspan="5">No students yet.</td></tr>
+    <tr><td colspan="7">No students yet.</td></tr>
     {% endfor %}
     </table>
     <p><a href="/">Home</a></p>

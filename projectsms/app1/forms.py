@@ -5,4 +5,13 @@ from .models import Student
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['first_name', 'last_name', 'email', 'roll_no', 'age']
+        # keep only a single dropdown for course selection (selected_course)
+        fields = ['first_name', 'last_name', 'email', 'roll_no', 'age', 'attendance', 'selected_course']
+        widgets = {
+            'selected_course': forms.Select,
+            'attendance': forms.NumberInput(attrs={'min': 0, 'max': 100}),
+        }
+        labels = {
+            'selected_course': 'Course',
+            'attendance': 'Attendance (%)',
+        }

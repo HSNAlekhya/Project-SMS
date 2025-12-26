@@ -8,7 +8,34 @@
     <h1>Update Student</h1>
     <form method="post" action="{% url 'update_student' student.pk %}">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p>
+        {{ form.first_name.label_tag }}<br>
+        {{ form.first_name }}
+    </p>
+    <p>
+        {{ form.last_name.label_tag }}<br>
+        {{ form.last_name }}
+    </p>
+    <p>
+        {{ form.email.label_tag }}<br>
+        {{ form.email }}
+    </p>
+    <p>
+        {{ form.roll_no.label_tag }}<br>
+        {{ form.roll_no }}
+    </p>
+    <p>
+        {{ form.age.label_tag }}<br>
+        {{ form.age }}
+    </p>
+    <p>
+        {{ form.attendance.label_tag }}<br>
+        {{ form.attendance }}
+    </p>
+    <p>
+        {{ form.selected_course.label_tag }}<br>
+        {{ form.selected_course }}
+    </p>
     <button type="submit">Save</button>
     </form>
     <p><a href="{% url 'view_students' %}">Back to students</a></p>

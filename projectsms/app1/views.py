@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Student
+from .models import Student, Course, SimpleCourse
 from .forms import StudentForm
 
 
@@ -46,3 +46,18 @@ def delete_student_root(request):
     return redirect('view_students')
 
 # Create your views here.
+
+
+def simple_courses(request):
+    # simple courses page removed — redirect to students list
+    return redirect('view_students')
+
+
+def student_courses(request, pk):
+    # student courses template removed — redirect to students list
+    return redirect('view_students')
+
+
+def manage_enrollments(request, pk):
+    # enrollment management UI removed — redirect to students list
+    return redirect('view_students')
