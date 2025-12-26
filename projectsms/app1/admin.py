@@ -4,8 +4,8 @@ from .models import Student, Course, SimpleCourse
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-	list_display = ('first_name', 'last_name', 'roll_no', 'email', 'age', 'attendance')
-	filter_horizontal = ('courses','simple_courses')
+	list_display = ('first_name', 'last_name', 'roll_no', 'email', 'age', 'gender', 'attendance',)
+	filter_horizontal = ('courses','simple_courses',)
 
 
 @admin.register(Course)

@@ -18,6 +18,13 @@ class Student(models.Model):
     )
     # attendance percentage (0-100)
     attendance = models.PositiveIntegerField(null=True, blank=True, help_text='Attendance percentage (0-100)')
+    GENDER_CHOICES = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('O', 'Other'),
+    )
+    name = models.CharField(max_length=50)
+    gender = models.CharField(max_length=30, choices=GENDER_CHOICES, null=True, blank=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.roll_no})"
