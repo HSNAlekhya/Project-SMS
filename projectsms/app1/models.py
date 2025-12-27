@@ -24,7 +24,9 @@ class Student(models.Model):
         ('O', 'Other'),
     )
     name = models.CharField(max_length=50)
-    gender = models.CharField(max_length=30, choices=GENDER_CHOICES, null=True, blank=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
+    grade = models.CharField(max_length=3, blank=True)
+
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.roll_no})"
