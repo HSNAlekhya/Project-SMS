@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Student(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=10)
     email = models.EmailField(unique=True)
-    roll_no = models.CharField(max_length=20, unique=True)
+    roll_no = models.CharField(max_length=5, unique=True)
     age = models.PositiveIntegerField(null=True, blank=True)
     courses = models.ManyToManyField('Course', blank=True, related_name='students')
     # simple_courses: optional simple list of course names (max 50 chars)
@@ -26,6 +26,7 @@ class Student(models.Model):
     name = models.CharField(max_length=50)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
     grade = models.CharField(max_length=3, blank=True)
+    fee_status = models.CharField(max_length=10)
 
 
     def __str__(self):
@@ -39,7 +40,7 @@ class Course(models.Model):
     credits = models.PositiveIntegerField(default=3)
     instructor = models.CharField(max_length=100, blank=True)
     semester = models.CharField(max_length=20, blank=True)
-    fee = models.DecimalField(max_digits=8, decimal_places=2, default=0)
+
 
     def __str__(self):
         return f"{self.title} ({self.code})"
